@@ -123,7 +123,7 @@
     <div class="client-info">
       <p><strong>Cliente:</strong> <span id="cliente"></span></p>
       <p><strong>Fecha de pago:</strong> <span id="fecha"></span></p>
-      <p><strong>Factura N°:</strong> <span id="nro_boleta"></span></p>
+      <p><strong>Factura N°:</strong> <span id="boleta"></span></p>
     </div>
 
     <table>
@@ -187,33 +187,24 @@
   </div>
 
   <script>
-    // Datos para la factura
-    const params = new URLSearchParams(window.location.search);
+        // Obtener los parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
 
-    document.getElementById("cliente").textContent = params.get('cliente') || "Cliente";
-    document.getElementById("fecha").textContent = params.get('fecha') || "Fecha";
-    document.getElementById("nro_boleta").textContent = params.get('boleta') || 
-    document.getElementById("mes").textContent = params.get('mes') || "mes";
-    document.getElementById("subtotal").textContent = params.get('subtotal') || "0.00";
-    document.getElementById("descuento").textContent = params.get('descuento') || "0.00";
-    document.getElementById("total_a_pagar").textContent = params.get('total_a_pagar') || "0.00";
+        // Obtener los valores de los parámetros
+        var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
+        var fechaPago = params.has('fechaPago') ? params.get('fechaPago') : "fechaPago no especificado";
+        var cliente = params.has('cliente') ? params.get('cliente') : "Cliente no especificado";
+        var telefono = params.has('telefono') ? params.get('telefono') : "telefono no especificado";
+        var nit_cedula = params.has('nit_cedula') ? params.get('nit_cedula') : "nit_cedula no especificado";
+        var mes = params.has('mes') ? params.get('mes') : "Mes no especificado";
 
-    const cantidades = params.get('cantidades').split(",");
-    const descripciones = params.get('servicios').split(",");
-    const precios = params.get('p_unit').split(",");
-
-    const tablaBody = document.getElementById("tablaBody");
-    
-    cantidades.forEach((cant, idx) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${cant}</td>
-        <td>${descripciones[idx]}</td>
-        <td>${precios[idx]}</td>
-        <td>${(cant * precios[idx]).toFixed(2)}</td>
-      `;
-      tablaBody.appendChild(row);
-    });
-  </script>
+        // Asignar los valores a los elementos HTML
+        document.getElementById("boleto").textContent = boleto;
+        document.getElementById("fechaPago").textContent = fechaPago;
+        document.getElementById("cliente").textContent = cliente;
+        document.getElementById("telefono").textContent = telefono;
+        document.getElementById("nit_cedula").textContent = nit_cedula;
+        document.getElementById("mes").textContent = mes;
+    </script>
 </body>
 </html>
