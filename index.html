@@ -139,7 +139,7 @@
       <tbody>
           <tr>
             <td>Pago Intereses</td>
-            <td id="mes"></td>
+            <td><span  id="mes"></span></td>
             
             <td>$550.000.00</td>
             </tr>
@@ -193,7 +193,7 @@
     document.getElementById("cliente").textContent = params.get('cliente') || "Cliente";
     document.getElementById("fecha").textContent = params.get('fecha') || "Fecha";
     document.getElementById("nro_boleta").textContent = params.get('boleta') || 
-      document.getElementById("mes").textContent = params.get('mes') || "mes";
+    document.getElementById("mes").textContent = params.get('mes') || "mes";
     document.getElementById("subtotal").textContent = params.get('subtotal') || "0.00";
     document.getElementById("descuento").textContent = params.get('descuento') || "0.00";
     document.getElementById("total_a_pagar").textContent = params.get('total_a_pagar') || "0.00";
