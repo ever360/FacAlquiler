@@ -208,19 +208,22 @@
 </html>
 
 
-   <div class="btn-compartir" id="btnCompartir">
+  <div class="btn-compartir" id="btnCompartir">
         <img src="https://raw.githubusercontent.com/ever360/OtraFactura/main/share-button-.png" alt="Botón Compartir">
     </div>
-     
 
-     <script>
+    <!-- Script para captura y compartir -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script>
         document.getElementById('btnCompartir').addEventListener('click', function() {
             const facturaElement = document.getElementById('factura');
 
+            // Captura la imagen usando html2canvas
             html2canvas(facturaElement).then(function(canvas) {
                 canvas.toBlob(function(blob) {
                     const file = new File([blob], "factura.png", { type: "image/png" });
 
+                    // Verificar si la API de compartir está disponible
                     if (navigator.canShare && navigator.canShare({ files: [file] })) {
                         navigator.share({
                             files: [file],
@@ -236,7 +239,7 @@
             });
         });
     </script>
-        
+
     <script>
         // Obtener los parámetros de la URL
         const params = new URLSearchParams(window.location.search);
