@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprobante de Pago Alquiler</title>
+    <title>Comprobante de Pago  Alquiler</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,11 +24,12 @@
         .header {
             text-align: center;
             margin-bottom: 40px;
-            
-         .header img {
-            width: 50%;  /* Ajusta el ancho a 150 píxeles */
-            height: auto;  /* Mantiene la proporción de la imagen */   
         }
+        
+        .header img {
+         width: 50%;    
+         height: auto;  
+       }
 
         .header img {
             width: 100px;
@@ -109,8 +110,8 @@
         <div class="header">
             <img src="https://acortar.link/MziB0N" alt="Logo de la empresa">
             <h1>Comprobante de Pago </h1>
-            <h1> Alquiler</h1>
-            <p>Fecha de emisión: <strong id="fechaPago"></strong></p>
+            <h1>ALQUILER</h1>
+            <p>Fecha de emisión: <strong id="fechaPago">10 de Octubre, 2024</strong></p>
         </div>
 
         <!-- Información del arrendatario y arrendador -->
@@ -124,17 +125,17 @@
                 </div>
                 <div>
                     <strong>Arrendatario:</strong><br>
-                    <span id="nombreArrendatario">Juan Pérez</span><br>
-                    Teléfono: <span id="telefonoArrendatario">+57 123 456 7890</span><br>
-                    Dirección: <span id="direccionArrendatario">Calle Siempreviva 742</span>
+                    <span id="nombreArrendatario"></span><br>
+                    Teléfono: <span id="telefonoArrendatario"></span><br>
+                    Dirección: <span id="direccionArrendatario"></span>
                 </div>
             </div>
 
             <div class="details">
                 <div>
                     <strong>Periodo de Alquiler:</strong><br>
-                    Desde: <span id="fechaDesde">01 de Octubre, 2024</span><br>
-                    Hasta: <span id="fechaHasta">31 de Octubre, 2024</span>
+                    Desde: <span id="fechaDesde"></span><br>
+                    Hasta: <span id="fechaHasta"></span>
                 </div>
                 <div>
                     <strong>Método de Pago:</strong><br>
@@ -164,17 +165,12 @@
                         <td>$1,000,000</td>
                     </tr>
                     <tr>
-                        <td>Servicios Públicos</td>
+                        <td>Deposito</td>
                         <td>1</td>
                         <td>$200,000</td>
                         <td>$200,000</td>
                     </tr>
-                    <tr>
-                        <td>Mantenimiento</td>
-                        <td>1</td>
-                        <td>$50,000</td>
-                        <td>$50,000</td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </div>
@@ -185,18 +181,27 @@
                 <strong>Subtotal:</strong> $1,250,000
             </div>
             <div>
-                <strong>IVA (19%):</strong> $237,500
+                <strong>IVA (19%):</strong> 0
             </div>
             <div class="highlight">
                 <strong>Total a Pagar:</strong> $1,487,500
             </div>
         </div>
-
+        
+        <div class="highlight">
+          <strong>Proximo pago :</strong><br>
+                    FECHA<br>
+        </div>
         <!-- Footer -->
         <div class="footer">
+            <p>Proximo pago.</p>
             <p>Gracias por su pago.</p>
         </div>
     </div>
+
+</body>
+</html>
+
 
    <div class="btn-compartir" id="btnCompartir">
         <img src="https://raw.githubusercontent.com/ever360/OtraFactura/main/share-button-.png" alt="Botón Compartir">
