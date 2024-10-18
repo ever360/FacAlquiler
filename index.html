@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprobante de Pago  Alquiler</title>
+    <title>Comprobante de Pago Alquiler</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,8 +22,8 @@
         }
         
         .header img {
-         width: 35%;   
-        height: auto;  
+            width: 35%;   
+            height: auto;  
         }
        
         .header {
@@ -35,7 +35,7 @@
             margin: 10px 0;
             font-size: 24px;
             color: #333;
-      }
+        }
 
         .details-section {
             margin-bottom: 40px;
@@ -96,6 +96,20 @@
             background-color: #ddd;
             margin: 20px 0;
         }
+
+        /* Posiciona el botón de compartir en la parte superior izquierda */
+        .btn-compartir {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .btn-compartir img {
+            width: 50px;  /* Ajusta el tamaño del botón si es necesario */
+            height: auto;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -104,7 +118,7 @@
         <!-- Header -->
         <div class="header">
             <img src="https://acortar.link/MziB0N" alt="Logo de la empresa">
-            <h1>Comprobante de Pago </h1>
+            <h1>Comprobante de Pago</h1>
             <h1>ALQUILER</h1>
             <p>Fecha de emisión: <strong id="fechaPago">10 de Octubre, 2024</strong></p>
         </div>
@@ -116,7 +130,6 @@
                     <strong>Arrendador:</strong><br>
                     Ever Moncada<br>
                     Telefono: 3145842929<br>
-                    
                 </div>
                 <div>
                     <strong>Arrendatario:</strong><br>
@@ -165,7 +178,6 @@
                         <td>$200,000</td>
                         <td>$200,000</td>
                     </tr>
-                    
                 </tbody>
             </table>
         </div>
@@ -182,30 +194,30 @@
                 <strong>Total a Pagar:</strong> $1,487,500
             </div>
         </div>
-        
+
         <div class="highlight">
-          <strong>Proximo pago :</strong><br>
-                    FECHA<br>
+            <strong>Proximo pago :</strong><br>
+            FECHA<br>
         </div>
+
         <!-- Footer -->
         <div class="footer">
-            <p>Proximo pago.</p>
+            <p>Próximo pago.</p>
             <p>Gracias por su pago.</p>
         </div>
+    </div>
+
+    <!-- Botón de compartir en la parte superior izquierda -->
+    <div class="btn-compartir" id="btnCompartir">
+        <img src="https://raw.githubusercontent.com/ever360/FacAlquiler1/main/share-button-.png" alt="Botón Compartir">
     </div>
 
     <!-- Librería para convertir HTML a imagen -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-   <div class="btn-compartir" id="btnCompartir">
-       
-        <img src="https://raw.githubusercontent.com/ever360/FacAlquiler1/main/share-button-.png" alt="Botón Compartir">
-    </div>
-     
-
-     <script>
+    <script>
         document.getElementById('btnCompartir').addEventListener('click', function() {
-            const facturaElement = document.getElementById('factura');
+            const facturaElement = document.querySelector('.invoice-container');
 
             html2canvas(facturaElement).then(function(canvas) {
                 canvas.toBlob(function(blob) {
@@ -226,6 +238,9 @@
             });
         });
     </script>
+</body>
+</html>
+
         
     <script>
         // Obtener los parámetros de la URL
