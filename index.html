@@ -1,214 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprobante de Pago</title>
-  <style>
-    * {
-      font-family: Arial, sans-serif;
-      font-size: 12pt;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprobante de Pago de Alquiler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-    }
+        .invoice-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    @page {
-      size: A4;
-      margin: 20mm;
-    }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-    .container {
-      max-width: 210mm;
-      margin: 0 auto;
-      padding: 20mm;
-      border: 1px solid #ddd;
-    }
+        .header img {
+            width: 100px;
+            height: auto;
+        }
 
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        .header h1 {
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
 
-    .header img {
-      width: 100px;
-    }
+        .details-section {
+            margin-bottom: 40px;
+        }
 
-    .header h1 {
-      margin: 0;
-      font-size: 20pt;
-    }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
 
-    .company-info,
-    .client-info {
-      margin-bottom: 20px;
-    }
+        .details strong {
+            font-weight: bold;
+            color: #555;
+        }
 
-    .company-info p,
-    .client-info p {
-      margin: 0;
-      font-size: 11pt;
-    }
+        .invoice-items table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
+        .invoice-items th, .invoice-items td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
 
-    table, th, td {
-      border: 1px solid #ddd;
-    }
+        .invoice-items th {
+            background-color: #f0f0f0;
+            color: #333;
+        }
 
-    th, td {
-      padding: 10px;
-      text-align: left;
-      font-size: 10pt;
-    }
+        .totals {
+            margin-top: 20px;
+            text-align: right;
+        }
 
-    th {
-      background-color: #f5f5f5;
-    }
+        .totals div {
+            margin-bottom: 5px;
+        }
 
-    .totals {
-      float: right;
-      width: 50%;
-    }
+        .totals strong {
+            font-size: 18px;
+        }
 
-    .totals table {
-      border: none;
-    }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+        }
 
-    .totals td {
-      text-align: right;
-    }
+        .highlight {
+            color: #4CAF50;
+        }
 
-    .totals td:nth-child(1) {
-      text-align: left;
-    }
-
-    .footer {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 10pt;
-      color: #555;
-    }
-
-    @media print {
-      .button-container {
-        display: none;
-      }
-    }
-  </style>
+        .divider {
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px 0;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="container">
-    <div class="header">
-      <img src="logo.png" alt="Logo de la empresa">
-      <h1>Comprobante de Pago</h1>
+
+    <div class="invoice-container">
+        <!-- Header -->
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Font_Awesome_5_solid_home.svg/768px-Font_Awesome_5_solid_home.svg.png" alt="Logo de la empresa">
+            <h1>Comprobante de Pago de Alquiler</h1>
+            <p>Fecha de emisión: <strong id="fechaPago">10 de Octubre, 2024</strong></p>
+        </div>
+
+        <!-- Información del arrendatario y arrendador -->
+        <div class="details-section">
+            <div class="details">
+                <div>
+                    <strong>Arrendador:</strong><br>
+                    Inmobiliaria XYZ<br>
+                    NIT: 123456789<br>
+                    Dirección: Calle Falsa 123
+                </div>
+                <div>
+                    <strong>Arrendatario:</strong><br>
+                    <span id="nombreArrendatario">Juan Pérez</span><br>
+                    Teléfono: <span id="telefonoArrendatario">+57 123 456 7890</span><br>
+                    Dirección: <span id="direccionArrendatario">Calle Siempreviva 742</span>
+                </div>
+            </div>
+
+            <div class="details">
+                <div>
+                    <strong>Periodo de Alquiler:</strong><br>
+                    Desde: <span id="fechaDesde">01 de Octubre, 2024</span><br>
+                    Hasta: <span id="fechaHasta">31 de Octubre, 2024</span>
+                </div>
+                <div>
+                    <strong>Método de Pago:</strong><br>
+                    Transferencia Bancaria
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalles del pago -->
+        <div class="divider"></div>
+        <div class="invoice-items">
+            <h2>Detalles del Pago</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Valor Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alquiler del mes</td>
+                        <td>1</td>
+                        <td>$1,000,000</td>
+                        <td>$1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>Servicios Públicos</td>
+                        <td>1</td>
+                        <td>$200,000</td>
+                        <td>$200,000</td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento</td>
+                        <td>1</td>
+                        <td>$50,000</td>
+                        <td>$50,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totales -->
+        <div class="totals">
+            <div>
+                <strong>Subtotal:</strong> $1,250,000
+            </div>
+            <div>
+                <strong>IVA (19%):</strong> $237,500
+            </div>
+            <div class="highlight">
+                <strong>Total a Pagar:</strong> $1,487,500
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Gracias por su pago.</p>
+        </div>
     </div>
 
-    <div class="company-info">
-      <p><strong>Empresa XYZ</strong></p>
-      <p>Av. Luna Pizarro 505, Vallecito, Arequipa</p>
-      <p>Email: contacto@empresa.com</p>
-      <p>Teléfono: +51 123 456 789</p>
-    </div>
-
-    <div class="client-info">
-      <p><strong>Cliente:</strong> <span id="cliente"></span></p>
-      <p><strong>Fecha de pago:</strong> <span id="fecha"></span></p>
-      <p><strong>Factura N°:</strong> <span id="boleta"></span></p>
-    </div>
-
-    <table>
-      <thead>
-        <tr>
-          
-          <th>Descripción</th>
-          <th>Mes</th>
-          <th>Valor</th>
-          
-        </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>Pago Intereses</td>
-            <td><span  id="mes"></span></td>
-            
-            <td id="valor"></td>
-            </tr>
-        </tbody>
-
-       <tbody>
-          <tr>
-            <td>Abono</td>
-            <td id="mes"></td>
-            <td id="abono"></td>
-            </tr>
-        </tbody>
-
-      <tbody>
-          <tr>
-            <td>Pago total</td>
-            <td>Octubre</td>
-            <td>$550.000.00</td>
-            </tr>
-        </tbody>
-      <tbody id="tablaBody"></tbody>
-    </table>
-
-    <div class="totals">
-      <table>
-        <tr>
-          <td>Subtotal:</td>
-          <td><span id="subtotal"></span></td>
-        </tr>
-        <tr>
-          <td>Descuento:</td>
-          <td><span id="descuento"></span></td>
-        </tr>
-        <tr>
-          <td>Total a Pagar:</td>
-          <td><span id="total_a_pagar"></span></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="footer">
-      <p>Gracias por su compra</p>
-      <p>Recuerde que contamos con garantía de satisfacción del 100%</p>
-    </div>
-  </div>
-
-  <script>
-        // Obtener los parámetros de la URL
-        const params = new URLSearchParams(window.location.search);
-
-        // Obtener los valores de los parámetros
-        var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
-        var fechaPago = params.has('fechaPago') ? params.get('fechaPago') : "fechaPago no especificado";
-        var cliente = params.has('cliente') ? params.get('cliente') : "Cliente no especificado";
-        var telefono = params.has('telefono') ? params.get('telefono') : "telefono no especificado";
-        var nit_cedula = params.has('nit_cedula') ? params.get('nit_cedula') : "nit_cedula no especificado";
-        var mes = params.has('mes') ? params.get('mes') : "Mes no especificado";
-        var mes = params.has('valor') ? params.get('valor') : "$ 0";
-        var mes = params.has('abono') ? params.get('abono') : "";
-
-        // Asignar los valores a los elementos HTML
-        document.getElementById("boleto").textContent = boleto;
-        document.getElementById("fechaPago").textContent = fechaPago;
-        document.getElementById("cliente").textContent = cliente;
-        document.getElementById("telefono").textContent = telefono;
-        document.getElementById("nit_cedula").textContent = nit_cedula;
-        document.getElementById("mes").textContent = mes;
-        document.getElementById("valor").textContent = valor;
-        document.getElementById("abono").textContent = abono;
-    </script>
 </body>
 </html>
+
