@@ -110,14 +110,44 @@
             height: auto;
             cursor: pointer;
         }
+
+        .logo-svg {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <div class="invoice-container">
-        <!-- Header -->
-        <div class="header">
-            <img src="https://raw.githubusercontent.com/ever360/FacAlquiler1/main/descarga%20(1).png" alt="Logo de la empresa">
+      <!-- SVG Logo -->
+        <div class="logo-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+              <!-- Base horizontal -->
+              <rect x="30" y="120" width="140" height="7" fill="black"/>
+
+              <!-- Edificio azul (rectángulo) -->
+              <rect x="100" y="30" width="50" height="90" fill="#00a2e8"/>
+
+              <!-- Casa rosada (pentágono) -->
+              <polygon points="30,75 120,75 75,40" fill="#ed145b" opacity="0.7"/>
+              
+              <!-- Casa rosada (cuadrado) -->
+              <rect x="30" y="75" width="90" height="45" fill="#ed145b" opacity="0.7"/>
+
+              <!-- Texto "URBAN HOME" -->
+              <text x="50%" y="150" font-family="Arial" font-size="15" text-anchor="middle" fill="black">
+                URBAN HOME
+              </text>
+
+              <!-- Texto "COMPANY" -->
+              <text x="50%" y="170" font-family="Arial" font-size="10" text-anchor="middle" fill="black">
+                COMPANY
+              </text>
+            </svg>
+        </div>
+
             <h1>Comprobante de Pago</h1>
             <h1>ALQUILER</h1>
             <p>Fecha de emisión: <strong id="fechaPago">10 de Octubre, 2024</strong></p>
