@@ -5,114 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprobante de Pago Alquiler</title>
     <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .invoice-container {
+        width: 8.5in; /* Ancho de una hoja tamaño carta */
+        height: 11in; /* Alto de una hoja tamaño carta */
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 1in; /* Márgenes de 1 pulgada */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box; /* Asegura que padding y borde estén incluidos en el tamaño total */
+    }
+
+    @media print {
         body {
-            font-family: Arial, sans-serif;
+            background-color: #fff;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
         }
 
         .invoice-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Asegura que ocupe todo el ancho de la página en impresión */
+            height: auto; /* Deja que el contenido determine la altura */
+            box-shadow: none; /* Elimina la sombra durante la impresión */
+            padding: 0; /* Elimina el padding extra al imprimir */
+            margin: 0; /* Elimina márgenes al imprimir */
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .header h1 {
-            margin: 10px 0;
-            font-size: 24px;
-            color: #333;
-        }
-
-        .details-section {
-            margin-bottom: 40px;
-        }
-
-        .details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .details strong {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .invoice-items table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .invoice-items th, .invoice-items td {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-
-        .invoice-items th {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-
-        .totals {
-            margin-top: 20px;
-            text-align: right;
-        }
-
-        .totals div {
-            margin-bottom: 5px;
-        }
-
-        .totals strong {
-            font-size: 18px;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #777;
-        }
-
-        .highlight {
-            color: #4CAF50;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
-        }
-
-        /* Posiciona el botón de compartir en la parte superior izquierda */
         .btn-compartir {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
+            display: none; /* Oculta el botón de compartir al imprimir */
         }
+    }
 
-        .btn-compartir img {
-            width: 50px;  /* Ajusta el tamaño del botón si es necesario */
-            height: auto;
-            cursor: pointer;
-        }
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-        .logo-svg {
-            width: 200px;
-            height: 200px;
-            margin: 20px auto;
-            display: block;
-        }
-    </style>
+    .header h1 {
+        margin: 10px 0;
+        font-size: 24px;
+        color: #333;
+    }
+
+    .details-section {
+        margin-bottom: 40px;
+    }
+
+    .details {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .details strong {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .invoice-items table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .invoice-items th, .invoice-items td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .invoice-items th {
+        background-color: #f0f0f0;
+        color: #333;
+    }
+
+    .totals {
+        margin-top: 20px;
+        text-align: right;
+    }
+
+    .totals div {
+        margin-bottom: 5px;
+    }
+
+    .totals strong {
+        font-size: 18px;
+    }
+
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        color: #777;
+    }
+
+    .highlight {
+        color: #4CAF50;
+    }
+
+    .divider {
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px 0;
+    }
+
+    /* Posiciona el botón de compartir en la parte superior izquierda */
+    .btn-compartir {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+
+    .btn-compartir img {
+        width: 50px;  /* Ajusta el tamaño del botón si es necesario */
+        height: auto;
+        cursor: pointer;
+    }
+
+    .logo-svg {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        display: block;
+    }
+</style>
 </head>
 <body>
 
