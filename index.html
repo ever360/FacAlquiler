@@ -293,7 +293,13 @@
     <script>
         // Obtener los parámetros de la URL
         const params = new URLSearchParams(window.location.search);
+
+        // Asignar valores a los campos
+        document.getElementById("fechaPago").textContent = params.get('fechaPago') || "Fecha no especificado";
         document.getElementById("nombreArrendatario").textContent = params.get('cliente') || "Cliente no especificado";
+        document.getElementById("telefonoArrendatario").textContent = params.get('telefono') || "Teléfono no especificado";
+        document.getElementById("direccionArrendatario").textContent = params.get('direccion') || "Dirección no especificada";
+        
         
         // Obtener los valores de los parámetros
         var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
