@@ -223,7 +223,7 @@
                     <tr>
                         <td>Alquiler del mes</td>
                         <td id="Nmes"></td>
-                        <td>$1,000,000</td>
+                        <td id="ValorUni"></td>
                         <td id="TValorAlquiler"></td>
                     </tr>
                     <tr>
@@ -310,10 +310,8 @@
         document.getElementById("fechaDesde").textContent = params.get('fechaDesde') || "Fechan no especificada";
         document.getElementById("fechaHasta").textContent = params.get('fechaHasta') || "Fecha no especificada";
         document.getElementById("MetodoPago").textContent = params.get('MetodoPago') || "no especificado";
-        document.getElementById("ProximoPago").textContent = params.get('ProximoPago') || "no especificado";
-        
         document.getElementById("Nmes").textContent = params.get('Nmes') || "no especificado";
-       
+        document.getElementById("ValorUni").textContent = params.get('ValorUni') || "no especificado";
         document.getElementById("TValorAlquiler").textContent = params.get('TValorAlquiler') || "no especificado";
         document.getElementById("ValorDepo").textContent = params.get('ValorDepo') || "no especificado";
         document.getElementById("TotalPagar").textContent = params.get('TotalPagar') || "no especificado";
