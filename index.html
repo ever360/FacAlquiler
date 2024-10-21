@@ -276,7 +276,7 @@
         // Obtener los valores de los parámetros
         var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
         var fechaPago = params.has('fechaPago') ? params.get('fechaPago') : "fechaPago no especificado";
-        var cliente = params.has('cliente') ? params.get('cliente') : "Cliente no especificado";
+        var nombreArrendatario = params.has('nombreArrendatario') ? params.get('nombreArrendatario') : "Cliente no especificado";
         var telefono = params.has('telefono') ? params.get('telefono') : "telefono no especificado";
         var desde = params.has('desde') ? params.get('desde') : "Fecha no especificado";
         var hasta = params.has('hasta') ? params.get('hasta') : "Fecha no especificado";
@@ -294,7 +294,7 @@
         // Asignar los valores a los elementos HTML
         document.getElementById("boleto").textContent = boleto;
         document.getElementById("fechaPago").textContent = fechaPago;
-        document.getElementById("cliente").textContent = cliente;
+        document.getElementById("nombreArrendatario").textContent = nombreArrendatario;
         document.getElementById("telefono").textContent = telefono;
         document.getElementById("desde").textContent = desde;
         document.getElementById("hasta").textContent = hasta;
