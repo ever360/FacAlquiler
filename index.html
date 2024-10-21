@@ -121,10 +121,10 @@
         <div class="logo-svg">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
               <!-- Base horizontal -->
-              <rect x="30" y="120" width="140" height="7" fill="black"/>
+              <rect x="15" y="120" width="155" height="5" fill="black"/>
 
               <!-- Edificio azul (rectángulo) -->
-              <rect x="100" y="30" width="50" height="90" fill="#00a2e8"/>
+              <rect x="100" y="10" width="60" height="110" fill="#00a2e8"/>
 
               <!-- Casa rosada (pentágono) -->
               <polygon points="30,75 120,75 75,40" fill="#ed145b" opacity="0.7"/>
@@ -133,12 +133,12 @@
               <rect x="30" y="75" width="90" height="45" fill="#ed145b" opacity="0.7"/>
 
               <!-- Texto "URBAN HOME" -->
-              <text x="50%" y="150" font-family="Arial" font-size="15" text-anchor="middle" fill="black">
+              <text x="50%" y="150" font-family="Arial" font-size="18" text-anchor="middle" fill="black">
                 URBAN HOME
               </text>
 
               <!-- Texto "COMPANY" -->
-              <text x="50%" y="170" font-family="Arial" font-size="10" text-anchor="middle" fill="black">
+              <text x="50%" y="170" font-family="Arial" font-size="12" text-anchor="middle" fill="black">
                 COMPANY
               </text>
             </svg>
@@ -272,7 +272,8 @@
     <script>
         // Obtener los parámetros de la URL
         const params = new URLSearchParams(window.location.search);
-
+        document.getElementById("nombreArrendatario").textContent = params.get('cliente') || "Cliente no especificado";
+        
         // Obtener los valores de los parámetros
         var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
         var fechaPago = params.has('fechaPago') ? params.get('fechaPago') : "fechaPago no especificado";
