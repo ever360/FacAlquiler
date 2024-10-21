@@ -195,7 +195,7 @@
                 </div>
                 <div>
                     <strong>Método de Pago:</strong><br>
-                    Transferencia Bancaria
+                    <span id="MetodoPago"></span><br>
                 </div>
             </div>
         </div>
@@ -245,7 +245,7 @@
 
         <div class="highlight">
             <strong>Proximo pago :</strong><br>
-            FECHA<br>
+            <br id="ProximoPago">FECHA<br>
         </div>
 
         <!-- Footer -->
@@ -299,6 +299,11 @@
         document.getElementById("nombreArrendatario").textContent = params.get('cliente') || "Cliente no especificado";
         document.getElementById("telefonoArrendatario").textContent = params.get('telefono') || "Teléfono no especificado";
         document.getElementById("direccionArrendatario").textContent = params.get('direccion') || "Dirección no especificada";
+        document.getElementById("fechaDesde").textContent = params.get('fechaDesde') || "Fechan no especificada";
+        document.getElementById("fechaHasta").textContent = params.get('fechaHasta') || "Fecha no especificada";
+        document.getElementById("MetodoPago").textContent = params.get('MetodoPago') || "no especificado";
+         document.getElementById("ProximoPgo").textContent = params.get('ProximoPgo') || "no especificado";
+        
         
         
         // Obtener los valores de los parámetros
