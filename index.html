@@ -20,17 +20,12 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .header img {
-            width: 35%;   
-            height: auto;  
-        }
-       
+
         .header {
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .header h1 {
             margin: 10px 0;
             font-size: 24px;
@@ -121,7 +116,8 @@
 </head>
 <body>
 
-      <!-- SVG Logo -->
+    <div class="invoice-container">
+        <!-- SVG Logo -->
         <div class="logo-svg">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
               <!-- Base horizontal -->
@@ -148,6 +144,7 @@
             </svg>
         </div>
 
+        <div class="header">
             <h1>Comprobante de Pago</h1>
             <h1>ALQUILER</h1>
             <p>Fecha de emisión: <strong id="fechaPago">10 de Octubre, 2024</strong></p>
