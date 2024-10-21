@@ -222,14 +222,14 @@
                 <tbody>
                     <tr>
                         <td>Alquiler del mes</td>
-                        <td>1</td>
+                        <td id="Nmes"></td>
                         <td>$1,000,000</td>
-                        <td>$1,000,000</td>
+                        <td id="TValorAlquiler"></td>
                     </tr>
                     <tr>
                         <td>Deposito</td>
                         <td>1</td>
-                        <td>$200,000</td>
+                        <td id="ValorDepo"></td>
                         <td>$200,000</td>
                     </tr>
                 </tbody>
@@ -241,11 +241,10 @@
             <div>
                 <strong>Subtotal:</strong> $1,250,000
             </div>
-            <div>
-                <strong>IVA (19%):</strong> 0
-            </div>
+           
             <div class="highlight">
                 <strong>Total a Pagar:</strong> $1,487,500
+                <p>otal a Pagar: <strong id="TotalPagar"></strong></p>
             </div>
         </div>
 
@@ -255,7 +254,7 @@
                     <span id="ProximoPago"></span><br>
                     
                 </div>
-        </div>
+        
 
         <!-- Footer -->
         <div class="footer">
@@ -263,7 +262,7 @@
             <p>Gracias por su pago.</p>
         </div>
     </div>
-
+</div>
     <!-- Botón de compartir en la parte superior izquierda -->
     <div class="btn-compartir" id="btnCompartir">
         <img src="https://raw.githubusercontent.com/ever360/FacAlquiler1/main/share-button-.png" alt="Botón Compartir">
@@ -311,9 +310,16 @@
         document.getElementById("fechaDesde").textContent = params.get('fechaDesde') || "Fechan no especificada";
         document.getElementById("fechaHasta").textContent = params.get('fechaHasta') || "Fecha no especificada";
         document.getElementById("MetodoPago").textContent = params.get('MetodoPago') || "no especificado";
-         document.getElementById("ProximoPago").textContent = params.get('ProximoPago') || "no especificado";
+        document.getElementById("ProximoPago").textContent = params.get('ProximoPago') || "no especificado";
         
+        document.getElementById("Nmes").textContent = params.get('Nmes') || "no especificado";
+       
+        document.getElementById("TValorAlquiler").textContent = params.get('TValorAlquiler') || "no especificado";
+        document.getElementById("ValorDepo").textContent = params.get('ValorDepo') || "no especificado";
+        document.getElementById("TotalPagar").textContent = params.get('TotalPagar') || "no especificado";
+        document.getElementById("ProximoPago").textContent = params.get('ProximoPago') || "no especificado";
         
+         
         
         // Obtener los valores de los parámetros
         var boleto = params.has('boleto') ? params.get('boleto') : "boleto no especificado";
