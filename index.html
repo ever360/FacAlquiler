@@ -86,7 +86,8 @@
 
     .totals {
         margin-top: 20px;
-        text-align: right;
+        text-align: left;
+         
     }
 
     .totals div {
@@ -238,10 +239,13 @@
 
         <!-- Totales -->
         <div class="totals">
-            <div>
-                 <strong>Total a Pagar:<p id="TotalPagar"></p></strong>
-                <strong>Subtotal:</strong> $1,250,000
-            </div>
+   
+    <div>
+        <strong>Total a Pagar:</strong>
+        <p id="TotalPagar" style="display: inline; margin: 0;">$0</p> <!-- Añade margin: 0 para que esté alineado correctamente -->
+    </div>
+</div>
+        
            
             <div class="highlight">
                 <strong>Total a Pagar:<p id="TotalPagar"></p></strong>
