@@ -249,8 +249,11 @@
         </div>
 
         <div class="highlight">
-            <strong>Proximo pago :</strong><br>
-            <br id="ProximoPago">FECHA<br>
+           
+                    <strong>Proximo pago:</strong><br>
+                    <span id="ProximoPago"></span><br>
+                    
+                </div>
         </div>
 
         <!-- Footer -->
@@ -307,7 +310,7 @@
         document.getElementById("fechaDesde").textContent = params.get('fechaDesde') || "Fechan no especificada";
         document.getElementById("fechaHasta").textContent = params.get('fechaHasta') || "Fecha no especificada";
         document.getElementById("MetodoPago").textContent = params.get('MetodoPago') || "no especificado";
-         document.getElementById("ProximoPgo").textContent = params.get('ProximoPgo') || "no especificado";
+         document.getElementById("ProximoPago").textContent = params.get('ProximoPago') || "no especificado";
         
         
         
